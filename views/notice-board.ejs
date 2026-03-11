@@ -1,0 +1,84 @@
+<%- include('partials/header') %>
+
+<section class="py-5 bg-light">
+    <div class="container py-4 text-center">
+        <h1 class="display-5 fw-bold" style="color:var(--deep-blue);"><%= page %></h1>
+    </div>
+</section>
+
+<section class="py-5 bg-white min-vh-100">
+    <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-sm border-0" style="border-radius:15px;">
+                    <div class="card-header bg-white border-bottom-0 py-4 px-4 d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0 fw-bold" style="color:var(--deep-blue);"><i class="fas fa-list text-primary me-2"></i> All Announcements & Circulars</h4>
+                        <div class="input-group w-auto">
+                            <input type="text" class="form-control bg-light" placeholder="Search notices..." aria-label="Search" id="searchNotice">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" id="noticeList">
+                            <% if(notices.length > 0) { %>
+                                <% notices.forEach((notice) => { %>
+                                    <div class="list-group-item list-group-item-action p-4 notice-item border-bottom">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto text-center px-4" style="border-right: 2px solid var(--sky-blue);">
+                                                <% const ndate = new Date(notice.date); %>
+                                                <h3 class="mb-0 fw-bold text-primary"><%= ndate.getDate() %></h3>
+                                                <small class="text-uppercase text-muted fw-bold"><%= ndate.toLocaleString('default', { month: 'short' }) %> <%= ndate.getFullYear() %></small>
+                                            </div>
+                                            <div class="col px-4">
+                                                <h5 class="mb-1 fw-bold notice-title" style="color:var(--deep-blue);"><%= notice.title %></h5>
+                                                <% if(notice.description) { %>
+                                                    <p class="mb-2 text-muted small"><%= notice.description %></p>
+                                                <% } %>
+                                            </div>
+                                            <div class="col-auto">
+                                                <% if(notice.file_url) { %>
+                                                    <a href="<%= notice.file_url %>" class="btn btn-outline-primary btn-sm rounded-pill px-3" target="_blank"><i class="fas fa-file-pdf me-2 text-danger"></i>View Circular</a>
+                                                <% } else { %>
+                                                    <span class="badge bg-secondary text-uppercase py-2 px-3 rounded-pill"><i class="fas fa-info-circle me-1"></i> Info Only</span>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            <% } else { %>
+                                <div class="p-5 text-center text-muted">
+                                    <i class="fas fa-folder-open mb-3" style="font-size:3rem; color:#ccc;"></i>
+                                    <h5>No notices available at the moment.</h5>
+                                    <p>Please check back later for updates and circulars.</p>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Simple Search Script for Notices -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchNotice');
+        if(searchInput) {
+            searchInput.addEventListener('keyup', function(e) {
+                const term = e.target.value.toLowerCase();
+                const items = document.querySelectorAll('.notice-item');
+                items.forEach(item => {
+                    const title = item.querySelector('.notice-title').innerText.toLowerCase();
+                    if(title.includes(term)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+    });
+</script>
+
+<%- include('partials/footer') %>

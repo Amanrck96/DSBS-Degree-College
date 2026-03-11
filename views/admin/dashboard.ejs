@@ -1,0 +1,88 @@
+<%- include('../partials/header') %>
+
+<section class="py-5 bg-dark text-white">
+    <div class="container py-4 text-center">
+        <h1 class="display-5 fw-bold text-warning"><i class="fas fa-user-shield me-3"></i>Admin Dashboard</h1>
+        <p class="lead">Manage Dynamic Content (Notices & Gallery)</p>
+    </div>
+</section>
+
+<section class="py-5 bg-light min-vh-100">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row g-5">
+            <!-- Upload Notice Form -->
+            <div class="col-lg-6">
+                <div class="card shadow border-0" style="border-radius:15px;">
+                    <div class="card-header bg-primary text-white py-3 border-0" style="border-radius:15px 15px 0 0;">
+                        <h4 class="mb-0 fw-bold"><i class="fas fa-bullhorn me-2"></i> Upload Notice / Circular</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="/admin/upload-notice" method="POST" enctype="multipart/form-data">
+                            
+                            <div class="mb-3">
+                                <label for="title" class="form-label fw-bold text-secondary">Notice Title *</label>
+                                <input type="text" class="form-control" id="title" name="title" required placeholder="e.g. End Semester Exam Schedule">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="description" class="form-label fw-bold text-secondary">Short Description (Optional)</label>
+                                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Brief details about the notice..."></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="document" class="form-label fw-bold text-secondary">Upload Document (PDF/Doc) (Optional)</label>
+                                <input class="form-control" type="file" id="document" name="document">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold"><i class="fas fa-upload me-2"></i> Publish Notice</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Gallery Image Form -->
+            <div class="col-lg-6">
+                <div class="card shadow border-0" style="border-radius:15px;">
+                    <div class="card-header text-white py-3 border-0" style="background-color:var(--deep-blue); border-radius:15px 15px 0 0;">
+                        <h4 class="mb-0 fw-bold"><i class="fas fa-images me-2 text-warning"></i> Upload Gallery Image</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="/admin/upload-gallery" method="POST" enctype="multipart/form-data">
+                            
+                            <div class="mb-3">
+                                <label for="gTitle" class="form-label fw-bold text-secondary">Image Title *</label>
+                                <input type="text" class="form-control" id="gTitle" name="title" required placeholder="e.g. Annual Sports Day 2026">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="category" class="form-label fw-bold text-secondary">Category *</label>
+                                <select class="form-select" id="category" name="category" required>
+                                    <option value="campus">Campus</option>
+                                    <option value="events">Events</option>
+                                    <option value="labs">Labs</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="image" class="form-label fw-bold text-secondary">Upload Image File *</label>
+                                <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-warning w-100 py-2 fw-bold" style="color:var(--deep-blue);"><i class="fas fa-upload me-2"></i> Upload to Gallery</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 mt-5 text-center">
+                 <a href="/" class="btn btn-outline-dark me-3"><i class="fas fa-arrow-left me-2"></i> Back to Home</a>
+                 <a href="/notice-board" class="btn btn-primary me-3"><i class="fas fa-eye me-2"></i> View Notices</a>
+                 <a href="/gallery" class="btn btn-success"><i class="fas fa-eye me-2"></i> View Gallery</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<section class="py-5 bg-light">
+    <div class="container py-4 text-center">
+        <h1 class="display-5 fw-bold" style="color:var(--deep-blue);"><%= page %></h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mt-3">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none" style="color:var(--sky-blue);">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%= page %></li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<section class="py-5 my-5 bg-white">
+    <div class="container" data-aos="fade-up">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <% if(page === 'About') { %>
+                    <h2 class="section-title">About DSBS Degree College</h2>
+                    <p class="lead text-muted">A premier institution established to foster academic excellence, innovative thinking, and ethical practices.</p>
+                <% } else if (page === 'Vision Mission') { %>
+                    <h2 class="section-title">Our Vision & Mission</h2>
+                    <p class="lead text-muted">Vision: To be a world-class center of knowledge. <br>Mission: To nurture global leaders through comprehensive education.</p>
+                <% } else { %>
+                    <h2 class="section-title"><%= page %> Overview</h2>
+                    <p class="lead text-muted">Information about <%= page %> is currently being updated. Please check back later for full details.</p>
+                <% } %>
+                <div class="mt-5 text-center">
+                    <img src="/images/campus1.jpg" onerror="this.src='https://via.placeholder.com/800x400?text=Campus+Image'" alt="Campus Image" class="img-fluid rounded shadow-sm hover-zoom w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

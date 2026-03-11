@@ -1,0 +1,170 @@
+<%- include('partials/header') %>
+
+<!-- Hero Section -->
+<section class="hero-section text-center d-flex align-items-center justify-content-center">
+    <div class="hero-shape shape1"></div>
+    <div class="hero-shape shape2"></div>
+    <div class="container position-relative" style="z-index: 2;" data-aos="zoom-in">
+        <h1 class="fw-bold text-white mb-4">Empowering the Leaders of Tomorrow</h1>
+        <p class="lead mb-5">At DSBS Degree College, we blend tradition with innovation to craft exceptional minds prepared for global challenges.</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="/admissions" class="btn btn-secondary-custom shadow"><i class="fas fa-user-graduate me-2"></i>Apply Now</a>
+            <a href="/about" class="btn btn-outline-light shadow border-2" style="border-radius:30px; padding:10px 25px; font-weight:600;"><i class="fas fa-info-circle me-2"></i>Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Notice & News Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-4 pt-4">
+            <!-- Notice Board Panel -->
+            <div class="col-lg-5" data-aos="slide-right">
+                <div class="card card-lift shadow-sm h-100 border-0" style="border-radius:15px; border-top: 5px solid var(--sky-blue) !important;">
+                    <div class="card-header bg-white border-0 py-3 d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0 fw-bold" style="color:var(--deep-blue);"><i class="fas fa-bullhorn text-warning me-2"></i> Notice Board</h4>
+                        <a href="/notice-board" class="btn btn-sm btn-outline-primary rounded-pill">View All</a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush" style="max-height: 350px; overflow-y: auto;">
+                            <% if(notices.length > 0) { %>
+                                <% notices.forEach((notice) => { %>
+                                <a href="<%= notice.file_url ? notice.file_url : '#' %>" class="list-group-item list-group-item-action p-3" target="_blank">
+                                    <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                        <h6 class="mb-0 fw-bold text-primary"><%= notice.title %></h6>
+                                        <small class="text-muted"><i class="far fa-calendar-alt"></i> <%= new Date(notice.date).toLocaleDateString() %></small>
+                                    </div>
+                                    <% if(notice.description) { %>
+                                        <p class="mb-0 text-muted small"><%= notice.description %></p>
+                                    <% } %>
+                                </a>
+                                <% }) %>
+                            <% } else { %>
+                                <div class="p-4 text-center text-muted">No notices available.</div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Welcome / About Details -->
+            <div class="col-lg-7" data-aos="fade-up">
+                <div class="p-4 bg-light rounded-4 h-100 border">
+                    <h5 class="text-uppercase" style="color:var(--sky-blue); font-weight:600; letter-spacing:1px;">Welcome to DSBS</h5>
+                    <h2 class="mb-4" style="color:var(--deep-blue);">A Legacy of Excellence in Education</h2>
+                    <p class="text-muted mb-4" style="line-height:1.8;">DSBS Degree College is a premier institution offering high-quality education in Management, Science, and Commerce disciplines. With a state-of-the-art campus and experienced faculty, we strive to build a foundation for students that is firmly grounded in academic excellence and practical learning.</p>
+                    <ul class="list-unstyled text-muted mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Affiliated to the renowned State University</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> World-class Infrastructure and Libraries</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Regular Seminars, Workshops, and placement drives</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Focus on moral and holistic development</li>
+                    </ul>
+                    <a href="/courses" class="btn btn-primary-custom shadow-sm"><i class="fas fa-book-reader me-2"></i>Explore Courses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Courses Overview -->
+<section class="py-5" style="background:#f4f6f9;">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Popular Academic Programs</h2>
+        <div class="row g-4 mt-3">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card card-lift text-center h-100 p-4">
+                    <div class="icon bg-light text-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3 shadow-sm" style="width:70px; height:70px; font-size:30px;">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4 class="card-title text-dark">Bachelor of Computer Applications (BCA)</h4>
+                    <p class="card-text text-muted">A deep dive into programming, software engineering, and modern IT infrastructure.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card card-lift text-center h-100 p-4">
+                    <div class="icon bg-light text-success rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3 shadow-sm" style="width:70px; height:70px; font-size:30px;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="card-title text-dark">Bachelor of Business Admin (BBA)</h4>
+                    <p class="card-text text-muted">Mastering core aspects of global business operations, entrepreneurship, and strategy.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card card-lift text-center h-100 p-4">
+                    <div class="icon bg-light text-warning rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3 shadow-sm" style="width:70px; height:70px; font-size:30px;">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h4 class="card-title text-dark">Bachelor of Commerce (B.Com)</h4>
+                    <p class="card-text text-muted">Accounting, finance, economics, and extensive financial market understanding.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 text-center" data-aos="fade-up" data-aos-delay="100">
+            <a href="/departments" class="btn btn-outline-primary px-4 py-2 rounded-pill fw-bold" style="border-width:2px;">View All Departments <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics counters -->
+<section class="stats-section">
+    <div class="container text-center">
+        <div class="row gy-4">
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-box">
+                    <h2><span class="counter">25</span>+</h2>
+                    <p class="text-uppercase fw-bold m-0" style="letter-spacing:1px; color:#ddd;">Years of Legacy</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-box">
+                    <h2><span class="counter">10000</span>+</h2>
+                    <p class="text-uppercase fw-bold m-0" style="letter-spacing:1px; color:#ddd;">Alumni Network</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-box">
+                    <h2><span class="counter">150</span>+</h2>
+                    <p class="text-uppercase fw-bold m-0" style="letter-spacing:1px; color:#ddd;">Expert Faculty</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400">
+                <div class="stat-box">
+                    <h2><span class="counter">50</span>+</h2>
+                    <p class="text-uppercase fw-bold m-0" style="letter-spacing:1px; color:#ddd;">Recruiters</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Visual Tour / Gallery Preview -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Campus Visuals</h2>
+        <div class="gallery-grid mt-4">
+            <% if(gallery.length > 0) { %>
+                <% gallery.forEach((img, i) => { %>
+                    <div class="gallery-item hover-zoom" data-aos="zoom-in" data-aos-delay="<%= i * 50 %>">
+                        <img src="<%= img.image_url %>" class="w-100 h-100" style="object-fit: cover; min-height: 250px;" alt="<%= img.title %>">
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="w-100 text-center text-muted col-12 py-5 bg-light rounded">More images coming soon...</div>
+            <% } %>
+        </div>
+        <div class="mt-4 text-center">
+            <a href="/gallery" class="btn btn-primary-custom shadow"><i class="fas fa-images me-2"></i>Visit Full Gallery</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 text-center text-white" style="background: var(--sky-blue); position:relative;">
+    <div class="container" data-aos="fade-up">
+        <h2 class="fw-bold mb-3">Shape Your Future With DSBS</h2>
+        <p class="lead mb-4">Admissions open for the current academic session. Give your career the right start.</p>
+        <a href="/contact" class="btn btn-secondary-custom shadow-lg"><i class="fas fa-headset me-2"></i>Contact Admissions Team</a>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

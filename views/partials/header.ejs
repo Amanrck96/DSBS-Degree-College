@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSBS Degree College | <%= page %></title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <a href="tel:+918012345678"><i class="fas fa-phone-alt"></i> +91 80 1234 5678</a>
+                <a href="tel:+919876543210"><i class="fas fa-mobile-alt"></i> +91 98765 43210</a>
+                <a href="mailto:info@dsbs.edu.in"><i class="fas fa-envelope"></i> info@dsbs.edu.in</a>
+            </div>
+            <div>
+                <a href="/admin"><i class="fas fa-user-lock"></i> Admin Login</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="/images/logo.png" alt="DSBS Logo" class="me-2" style="background:#0B3C5D; padding:5px; border-radius:10px;">
+                <div>
+                    <h5 class="m-0 fw-bold" style="color:var(--deep-blue); font-family:'Montserrat', sans-serif;">DSBS</h5>
+                    <small style="color:var(--sky-blue); font-weight:600;">DEGREE COLLEGE</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link <%= page==='Home'?'active':'' %>" href="/">Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item" href="/about">About DSBS</a></li>
+                            <li><a class="dropdown-item" href="/history">History</a></li>
+                            <li><a class="dropdown-item" href="/vision-mission">Vision & Mission</a></li>
+                            <li><a class="dropdown-item" href="/college-profile">College Profile</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Administration</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item" href="/management">Management</a></li>
+                            <li><a class="dropdown-item" href="/governing-body">Governing Body</a></li>
+                            <li><a class="dropdown-item" href="/principal-message">Principal Message</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Academics</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item" href="/courses">Courses</a></li>
+                            <li><a class="dropdown-item" href="/departments">Departments</a></li>
+                            <li><a class="dropdown-item" href="/admissions">Admissions</a></li>
+                            <li><a class="dropdown-item" href="/academic-calendar">Academic Calendar</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Campus Life</a>
+                        <ul class="dropdown-menu shadow border-0 mt-3">
+                            <li><a class="dropdown-item" href="/facilities">Facilities</a></li>
+                            <li><a class="dropdown-item" href="/library">Library</a></li>
+                            <li><a class="dropdown-item" href="/laboratories">Laboratories</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link <%= page==='Gallery'?'active':'' %>" href="/gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link <%= page==='Notice Board'?'active':'' %>" href="/notice-board">Notice Board</a></li>
+                    <li class="nav-item"><a class="nav-link <%= page==='Contact Us'?'active':'' %>" href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>

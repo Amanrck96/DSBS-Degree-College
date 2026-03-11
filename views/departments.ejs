@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+<section class="py-5 bg-light">
+    <div class="container py-4 text-center">
+        <h1 class="display-5 fw-bold" style="color:var(--deep-blue);"><%= page %></h1>
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container text-center" data-aos="fade-up">
+        <h2 class="section-title mb-5">Our Core Departments</h2>
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card border-0 shadow-sm h-100 py-4 hover-zoom" style="border-radius:15px; background:var(--light-gray);">
+                    <div class="card-body">
+                        <i class="fas fa-desktop mb-3 text-primary" style="font-size:3rem;"></i>
+                        <h4 class="fw-bold" style="color:var(--deep-blue);">Computer Science</h4>
+                        <p class="text-muted mt-3">Advanced labs, experienced professors, and modern curriculum covering AI, Cloud Computing, and App Dev.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card border-0 shadow-sm h-100 py-4 hover-zoom" style="border-radius:15px; background:var(--light-gray);">
+                    <div class="card-body">
+                        <i class="fas fa-briefcase mb-3 text-warning" style="font-size:3rem;"></i>
+                        <h4 class="fw-bold" style="color:var(--deep-blue);">Management Studies</h4>
+                        <p class="text-muted mt-3">Emphasis on leadership skills, organizational networking, strategic planning, and practical corporate experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card border-0 shadow-sm h-100 py-4 hover-zoom" style="border-radius:15px; background:var(--light-gray);">
+                    <div class="card-body">
+                        <i class="fas fa-chart-pie mb-3 text-success" style="font-size:3rem;"></i>
+                        <h4 class="fw-bold" style="color:var(--deep-blue);">Commerce & Accounts</h4>
+                        <p class="text-muted mt-3">Focus on economic trends, rigorous accounting standards, finance, and banking operations.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

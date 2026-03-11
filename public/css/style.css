@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --deep-blue: #0B3C5D;
+    --sky-blue: #1D9BF0;
+    --gold: #F4B400;
+    --white: #FFFFFF;
+    --light-gray: #F8F9FA;
+    --text-dark: #333333;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--light-gray);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* Header & Navbar */
+.top-bar {
+    background-color: var(--deep-blue);
+    color: var(--white);
+    padding: 8px 0;
+    font-size: 14px;
+}
+.top-bar a {
+    color: var(--white);
+    text-decoration: none;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+.top-bar a:hover {
+    color: var(--gold);
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+.navbar-brand img {
+    height: 60px;
+}
+.nav-link {
+    color: var(--deep-blue) !important;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 0 10px;
+    position: relative;
+    transition: 0.3s;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--sky-blue);
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+.nav-link:hover {
+    color: var(--sky-blue) !important;
+}
+
+/* Animations */
+.hover-zoom {
+    overflow: hidden;
+}
+.hover-zoom img {
+    transition: transform 0.5s ease;
+}
+.hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+.card-lift {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.card-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(45deg, var(--deep-blue), var(--sky-blue));
+    color: var(--white);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+}
+.shape1 { width: 300px; height: 300px; top: -50px; right: -50px; }
+.shape2 { width: 200px; height: 200px; bottom: 50px; left: 10%; }
+
+/* Buttons */
+.btn-primary-custom {
+    background: var(--sky-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-primary-custom:hover {
+    background: var(--gold);
+    color: var(--deep-blue);
+}
+.btn-secondary-custom {
+    background: var(--gold);
+    color: var(--deep-blue);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-secondary-custom:hover {
+    background: var(--white);
+    color: var(--deep-blue);
+}
+
+/* Sections */
+.section-title {
+    color: var(--deep-blue);
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 15px auto 0;
+}
+
+.stats-section {
+    background: var(--deep-blue);
+    color: var(--white);
+    padding: 60px 0;
+}
+.stat-box {
+    text-align: center;
+}
+.stat-box h2 {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+/* Masonry Gallery */
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.gallery-item {
+    flex: 1 1 calc(33.333% - 15px);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Footer */
+footer {
+    background: var(--deep-blue);
+    color: var(--light-gray);
+    padding: 60px 0 20px;
+}
+footer a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: 0.3s;
+}
+footer a:hover {
+    color: var(--gold);
+}
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+}
+.social-icons a:hover {
+    background: var(--sky-blue);
+}
