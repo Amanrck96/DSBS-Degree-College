@@ -1,7 +1,12 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-const dbPath = path.resolve(__dirname, 'college.db');
+const dbPath = process.env.VERCEL ? '/tmp/college.db' : path.resolve(__dirname, 'college.db');
+
+if (process.env.VERCEL && !require('fs').existsSync(dbPath)) {
+    try { require('fs').copyFileSync(path.resolve(__dirname, 'college.db'), dbPath); } catch (e) {}
+}
+
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database', err.message);
