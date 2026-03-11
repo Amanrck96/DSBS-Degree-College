@@ -35,25 +35,28 @@ const upload = multer({ storage: storage });
 
 // ===== FRONTEND ROUTES =====
 const pages = [
-    'index', 'about', 'history', 'vision-mission', 'management', 'governing-body',
+    'index', 'about-us', 'history', 'vision-mission', 'management', 'governing-body',
     'principal-message', 'college-profile', 'courses', 'departments', 'facilities',
-    'library', 'laboratories', 'admissions', 'academic-calendar', 'events', 'contact'
+    'library', 'laboratories', 'admissions', 'academic-calendar', 'events', 'contact-us'
 ];
 
 pages.forEach(page => {
     app.get(page === 'index' ? '/' : `/${page}`, (req, res) => {
+        let title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        if (title === 'About Us') title = 'About Us';
+        if (title === 'Contact Us') title = 'Contact Us';
+
         if (page === 'index') {
-            // Fetch some recent notices and gallery images for the home page
             db.all('SELECT * FROM notices ORDER BY date DESC LIMIT 5', (err, notices) => {
                 db.all('SELECT * FROM gallery ORDER BY date DESC LIMIT 6', (err2, gallery) => {
                     res.render('index', { page: 'Home', notices: notices || [], gallery: gallery || [] });
                 });
             });
-        } else if (['contact', 'courses', 'departments'].includes(page)) {
-            const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        } else if (['contact-us'].includes(page)) {
+            res.render('contact', { page: title });
+        } else if (['courses', 'departments'].includes(page)) {
             res.render(page, { page: title });
         } else {
-            const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
             res.render('generic', { page: title });
         }
     });
