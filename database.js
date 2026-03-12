@@ -23,7 +23,8 @@ if (process.env.VERCEL) {
 } else {
     let sqlite3;
     try {
-        sqlite3 = require('sqlite3').verbose();
+        const moduleName = 'sq' + 'lite' + '3';
+        sqlite3 = require(moduleName).verbose();
     } catch (err) {
         console.error("Could not load sqlite3:", err);
     }
