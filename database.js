@@ -1,4 +1,3 @@
-const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 if (process.env.VERCEL) {
@@ -22,27 +21,37 @@ if (process.env.VERCEL) {
         }
     };
 } else {
-    const sqlite3 = require('sqlite3').verbose();
-    const dbPath = path.resolve(__dirname, 'college.db');
-    const db = new sqlite3.Database(dbPath, (err) => {
-        if (err) console.error('Error opening database', err.message);
-        else {
-            console.log('Connected to the SQLite database.');
-            db.run(`CREATE TABLE IF NOT EXISTS notices (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT NOT NULL,
-                description TEXT,
-                file_url TEXT,
-                date TEXT NOT NULL
-            )`);
-            db.run(`CREATE TABLE IF NOT EXISTS gallery (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                title TEXT,
-                image_url TEXT NOT NULL,
-                category TEXT,
-                date TEXT NOT NULL
-            )`);
-        }
-    });
-    module.exports = db;
+    let sqlite3;
+    try {
+        sqlite3 = require('sqlite3').verbose();
+    } catch (err) {
+        console.error("Could not load sqlite3:", err);
+    }
+    
+    if (sqlite3) {
+        const dbPath = path.resolve(__dirname, 'college.db');
+        const db = new sqlite3.Database(dbPath, (err) => {
+            if (err) console.error('Error opening database', err.message);
+            else {
+                console.log('Connected to the SQLite database.');
+                db.run(`CREATE TABLE IF NOT EXISTS notices (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    title TEXT NOT NULL,
+                    description TEXT,
+                    file_url TEXT,
+                    date TEXT NOT NULL
+                )`);
+                db.run(`CREATE TABLE IF NOT EXISTS gallery (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    title TEXT,
+                    image_url TEXT NOT NULL,
+                    category TEXT,
+                    date TEXT NOT NULL
+                )`);
+            }
+        });
+        module.exports = db;
+    } else {
+        module.exports = { run: () => {}, all: (q, p, cb) => { if(typeof p === 'function') cb = p; if(cb) cb(null, []); } };
+    }
 }
